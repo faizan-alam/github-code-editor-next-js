@@ -2,6 +2,10 @@
 
 This is a small react component editor that is powered by GitHub. It can read a file from a specified GitHub repository, transform it into a JSON object, and then transform that JSON object into a React component.
 
+## Demo 
+https://www.loom.com/share/e00e0e2cf92a4001be0590986f7a68ab
+https://www.loom.com/share/a23b37f84e3c4734a3c4f380415f5e46
+
 ## Installation
 
 To install and run this project locally, follow these steps:
