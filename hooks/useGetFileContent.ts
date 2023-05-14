@@ -1,40 +1,31 @@
+import { getFileContent } from "@/services/api.service";
 import React from "react";
 
 const useGetFileContent = () => {
-  const [data, setData] = React.useState<string>();
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string>();
+  const [isLoading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState<string>("");
 
-  const getFileContent = () => {
-    setData(`import * as React from "react";
-
-    type Props = {
-      title: string;
-      color: string;
-      className: string;
-      onClick: () => void;
-    };
-    
-    export const Button: React.FC<Props> = (props) => {
-      const { title, color, onClick, ...otherProps } = props;
-      return (
-        <button style={{ color }} onClick={onClick} {...otherProps}>
-          {title}
-        </button>
+  const getData = async () => {
+    try {
+      setLoading(true);
+      const response = await getFileContent(process.env.NEXT_PUBLIC_FILE_PATH);
+      setData(response.content);
+    } catch (error) {
+      console.log(
+        "🚀 ~ file: useGetFileContent.tsx:12 ~ getData ~ error:",
+        error
       );
-    };
-    
-    Button.defaultProps = {
-      color: "blue",
-    };
-    `);
+      alert("Error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   React.useEffect(() => {
-    getFileContent();
+    getData();
   }, []);
 
-  return { data, loading, error };
+  return { isLoading, data, getData };
 };
 
 export default useGetFileContent;

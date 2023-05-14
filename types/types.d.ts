@@ -10,3 +10,17 @@ export interface PreviewJSON {
   imports: string[];
   content: string;
 }
+
+export interface GithubFileInformation {
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url: string;
+  git_url: string;
+  download_url: string;
+  type: string;
+  content: string;
+  encoding: string;
+}

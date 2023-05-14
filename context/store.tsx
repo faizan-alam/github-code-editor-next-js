@@ -3,8 +3,8 @@ import React, { createContext, useContext } from "react";
 import useGetFileContent from "../hooks/useGetFileContent";
 import { PreviewJSON } from "../types/types.d";
 import { DEFAULT_JSON_PREVIEW } from "../constants";
-import { JsonConverter } from "../services/jsonConverter";
-import { formateCode } from "../services/prettier";
+import { JsonConverter } from "../helpers/jsonConverter";
+import { formateCode } from "../helpers/prettier";
 
 export interface StoreType {
   jsonPreview: PreviewJSON;
