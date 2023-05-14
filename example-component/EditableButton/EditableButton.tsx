@@ -1,23 +1,22 @@
 import * as React from "react";
-import moment from "moment";
 
-type TestButtonProps = {
+type Props = {
+  title: string;
+  color: string;
+  className: string;
   test: string;
-  test2: string;
-  test3: () => void;
+  onClick: () => void;
 };
 
-export const TestButton: React.FC<TestButtonProps> = (props) => {
-  const { test, test2, test3, ...otherProps } = props;
+export const Button: React.FC<Props> = (props) => {
+  const { title, color, onClick, ...otherProps } = props;
   return (
-    <button test={test} test2={test2} teste={props.test3} {...otherProps}>
+    <button style={{ color }} onClick={onClick} {...otherProps}>
       {title}
     </button>
   );
 };
 
-TestButton.defaultProps = {
-  test: red,
-  test2: black,
-  test3: () => null,
+Button.defaultProps = {
+  color: "blue",
 };
