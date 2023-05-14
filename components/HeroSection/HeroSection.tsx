@@ -37,6 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ description, heading }) => {
         <button
           disabled={loading}
           className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+          onClick={handleUpdateFileDetails}
         >
           Save File
         </button>
