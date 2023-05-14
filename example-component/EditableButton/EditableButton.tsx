@@ -1,22 +1,23 @@
 import * as React from "react";
+import moment from "moment";
 
 type Props = {
-  title: string;
-  color: string;
-  className: string;
   test: string;
-  onClick: () => void;
+  test2: string;
+  test3: () => void;
 };
 
 export const Button: React.FC<Props> = (props) => {
-  const { title, color, onClick, ...otherProps } = props;
+  const { test, test2, ...otherProps } = props;
   return (
-    <button style={{ color }} onClick={onClick} {...otherProps}>
+    <button test={test} test2={test2} onClick={props.test3} {...otherProps}>
       {title}
     </button>
   );
 };
 
 Button.defaultProps = {
-  color: "blue",
+  test: "test",
+  test2: "test3",
+  test3: () => null,
 };
