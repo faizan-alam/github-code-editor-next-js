@@ -9,7 +9,6 @@ import { formateCode } from "../helpers/prettier";
 export interface StoreType {
   jsonPreview: PreviewJSON;
   rawFileData?: string;
-  rawFileError?: string;
   jsonPreviewStringify: string;
   rawFileLoading?: boolean;
   fileData: string;
@@ -40,11 +39,7 @@ export const StoreContext: React.FC<{ children: React.ReactNode }> = ({
     React.useState<string>("");
   const [fileData, setFileData] = React.useState<string>("");
 
-  const {
-    data: rawFileData,
-    error: rawFileError,
-    loading: rawFileLoading,
-  } = useGetFileContent();
+  const { data: rawFileData, isLoading: rawFileLoading } = useGetFileContent();
 
   React.useEffect(() => {
     if (rawFileData) convertComponentToJsonPreview(rawFileData);
@@ -91,7 +86,6 @@ export const StoreContext: React.FC<{ children: React.ReactNode }> = ({
       value={{
         jsonPreview,
         rawFileData,
-        rawFileError,
         rawFileLoading,
         jsonPreviewStringify,
         fileData,

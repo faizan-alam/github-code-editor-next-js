@@ -1,6 +1,6 @@
 import { GithubFileInformation } from "../types/types";
 
-const getFileContent = (path: string) =>
+const getFileContent = (path?: string) =>
   new Promise<GithubFileInformation>(async (res, rej) => {
     try {
       const raw = await fetch(`/api/github/file?path=${path}`, {
@@ -14,7 +14,7 @@ const getFileContent = (path: string) =>
     }
   });
 
-const updateFileContent = (path: string, content: string) =>
+const updateFileContent = (path?: string, content?: string) =>
   new Promise(async (res, rej) => {
     try {
       const raw = await fetch(`/api/github/file`, {

@@ -1,10 +1,10 @@
 import React from "react";
 import SimpleEditor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs/components/prism-core";
+import { EditorTypeProps } from "./EditorType";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism.css"; //Example style, you can use another
-import { EditorTypeProps } from "./EditorType";
+import "prismjs/themes/prism.css";
 
 const Editor: React.FC<EditorTypeProps> = ({ onValueChange, value }) => {
   return (
